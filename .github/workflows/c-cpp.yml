@@ -34,11 +34,11 @@ jobs:
       fail-fast: false
       matrix:
         name:
-          - x86_64-linux
-          - x86_64-macos
-          - x86_64-win
+         # - x86_64-linux
+          #- x86_64-macos
+         # - x86_64-win
           - aarch64-linux
-          - armhf-linux
+          #- armhf-linux
         include:
         
           - name: armhf-linux
@@ -187,7 +187,6 @@ jobs:
         if: |
           matrix.name != 'x86_64-macos' &&
           matrix.name != 'x86_64-win'
-
         uses: actions/upload-artifact@v4
 
         with:
@@ -199,7 +198,6 @@ jobs:
         if: |
           matrix.name == 'x86_64-macos' ||
           matrix.name == 'x86_64-win'
-
         uses: actions/upload-artifact@v4
 
         with:
@@ -211,4 +209,3 @@ jobs:
             release/pulsar-cli
             release/pulsar-cli.exe
             release/Pulsar-Qt.app
-
